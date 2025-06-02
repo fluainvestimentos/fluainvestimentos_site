@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 import sqlite3
 import os
 
@@ -47,6 +47,18 @@ def listar_processos():
     rows = cursor.fetchall()
     conn.close()
     return render_template("listar.html", rows=rows)
+
+@app.route("/cadastro", methods=["GET", "POST"])
+def cadastro():
+    """
+    Exibe um formulário simples para o usuário inserir nome e e-mail.
+    Se for POST, renderiza a página de agradecimento com o nome.
+    """
+    if request.method == "POST":
+        nome = request.form.get("nome")
+        email = request.form.get("email")
+        return render_template("obrigado.html", nome=nome)
+    return render_template("cadastro.html")
 
 if __name__ == "__main__":
     init_db()  # Garante que o DB foi criado
