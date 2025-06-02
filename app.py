@@ -26,7 +26,7 @@ def index():
 def start_process():
     """
     Quando o usuário clicar no botão, esta rota
-    será chamada. Vamos inserir uma linha na tabela.
+    será chamada. Insere uma linha na tabela e redireciona de volta.
     """
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -38,19 +38,15 @@ def start_process():
 @app.route("/listar")
 def listar_processos():
     """
-    (Opcional) Rota para listar todos os registros
-    inseridos, para verificar que está funcionando.
+    Rota para listar todos os registros inseridos,
+    usando o template listar.html.
     """
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("SELECT id, timestamp FROM processos ORDER BY id DESC")
     rows = cursor.fetchall()
     conn.close()
-    html = "<h2>Processos Iniciados</h2><ul>"
-    for r in rows:
-        html += f"<li>#{r[0]} em {r[1]}</li>"
-    html += "</ul><a href='/'>← Voltar</a>"
-    return html
+    return render_template("listar.html", rows=rows)
 
 if __name__ == "__main__":
     init_db()  # Garante que o DB foi criado
