@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Simulação de Alocação – Flua Investimentos{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Simule sua Alocação</h1>
+  <form action="{{ url_for('alocacao') }}" method="post">
+    <input
+      type="number"
+      step="0.01"
+      name="valor"
+      placeholder="Quanto deseja investir? (R$)"
+      required
+      style="width: 100%; padding: 8px; margin-bottom: 20px;"
+    >
+    <button type="submit">Calcular</button>
+  </form>
+  <a class="link-listar" href="{{ url_for('index') }}">← Voltar ao Início</a>
+</div>
+{% endblock %}
