@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastre-se – Flua Investimentos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastre-se para receber novidades</h1>
+    <form action="{{ url_for('cadastro') }}" method="post">
+      <input
+        type="text"
+        name="nome"
+        placeholder="Seu nome"
+        required
+        style="width: 100%; padding: 8px; margin-bottom: 12px;"
+      >
+      <input
+        type="email"
+        name="email"
+        placeholder="Seu e-mail"
+        required
+        style="width: 100%; padding: 8px; margin-bottom: 20px;"
+      >
+      <button type="submit">Enviar</button>
+    </form>
+    <a class="link-listar" href="{{ url_for('index') }}">← Voltar ao Início</a>
+  </div>
+</body>
+</html>
