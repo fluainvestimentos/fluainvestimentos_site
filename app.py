@@ -1,6 +1,6 @@
-from flask import Flask, render_template, redirect, url_for, request
-import sqlite3
 import os
+import sqlite3
+from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -48,17 +48,25 @@ def listar_processos():
     conn.close()
     return render_template("listar.html", rows=rows)
 
-@app.route("/cadastro", methods=["GET", "POST"])
-def cadastro():
+@app.route("/alocacao", methods=["GET", "POST"])
+def alocacao():
     """
-    Exibe um formulário simples para o usuário inserir nome e e-mail.
-    Se for POST, renderiza a página de agradecimento com o nome.
+    Exibe um form para usuário digitar o valor a investir
+    e retorna sugestão de alocação (50% ações, 30% renda fixa, 20% caixa).
     """
     if request.method == "POST":
-        nome = request.form.get("nome")
-        email = request.form.get("email")
-        return render_template("obrigado.html", nome=nome)
-    return render_template("cadastro.html")
+        valor = float(request.form.get("valor"))
+        acoes = valor * 0.50
+        renda_fixa = valor * 0.30
+        caixa = valor * 0.20
+        return render_template(
+            "alocacao_resultado.html",
+            valor=valor,
+            acoes=acoes,
+            renda_fixa=renda_fixa,
+            caixa=caixa
+        )
+    return render_template("alocacao.html")
 
 if __name__ == "__main__":
     init_db()  # Garante que o DB foi criado
