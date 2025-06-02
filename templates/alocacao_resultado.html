@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Resultado da Alocação – Flua Investimentos{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Alocação sugerida para R$ {{ "{:,.2f}".format(valor) }}</h1>
+  <ul style="text-align: left; padding-left: 0; margin-bottom: 20px;">
+    <li style="list-style: none; margin-bottom: 8px;">
+      Ações (50%): R$ {{ "{:,.2f}".format(acoes) }}
+    </li>
+    <li style="list-style: none; margin-bottom: 8px;">
+      Renda Fixa (30%): R$ {{ "{:,.2f}".format(renda_fixa) }}
+    </li>
+    <li style="list-style: none; margin-bottom: 8px;">
+      Caixa (20%): R$ {{ "{:,.2f}".format(caixa) }}
+    </li>
+  </ul>
+  <a class="link-listar" href="{{ url_for('alocacao') }}">← Simular outro valor</a><br>
+  <a class="link-listar" href="{{ url_for('index') }}">← Voltar ao Início</a>
+</div>
+{% endblock %}
