@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Flua Investimentos{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav style="background: #1A73E8; padding: 12px 20px;">
+    <a href="{{ url_for('index') }}" style="color: #fff; margin-right: 20px; text-decoration: none;">Home</a>
+    <a href="{{ url_for('listar_processos') }}" style="color: #fff; margin-right: 20px; text-decoration: none;">Processos</a>
+    <a href="{{ url_for('alocacao') }}" style="color: #fff; text-decoration: none;">Simular Alocação</a>
+  </nav>
+
+  <div style="padding: 20px;">
+    {% block content %}{% endblock %}
+  </div>
+
+  <footer style="text-align: center; margin-top: 40px; color: #777;">
+    © 2025 Flua Investimentos
+  </footer>
+</body>
+</html>
