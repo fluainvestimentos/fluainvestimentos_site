@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obrigado – Flua Investimentos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Obrigado, {{ nome }}!</h1>
+    <p>Recebemos suas informações e em breve entraremos em contato.</p>
+    <a class="link-listar" href="{{ url_for('index') }}">← Voltar ao Início</a>
+  </div>
+</body>
+</html>
