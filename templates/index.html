@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Flua Investimentos – Iniciar Processo</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-  <div class="container">
-    <h1>Flua Investimentos</h1>
-    <p>Clique no botão abaixo para iniciar o processo:</p>
-    <form action="{{ url_for('start_process') }}" method="get">
-      <button type="submit">START</button>
-    </form>
-    <a class="link-listar" href="{{ url_for('listar_processos') }}">Ver processos iniciados</a>
-  </div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Flua Investimentos – Início{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Flua Investimentos</h1>
+  <p>Clique no botão abaixo para iniciar o processo:</p>
+  <form action="{{ url_for('start_process') }}" method="get">
+    <button type="submit">START</button>
+  </form>
+  <a class="link-listar" href="{{ url_for('listar_processos') }}">Ver processos iniciados</a>
+</div>
+{% endblock %}
