@@ -1,21 +1,5 @@
 {% extends "base.html" %}
-
 {% block title %}Processos Iniciados – Flua Investimentos{% endblock %}
-
 {% block content %}
-<div class="container">
-  <h1>Processos Iniciados</h1>
-  {% if rows %}
-    <ul style="text-align: left; padding-left: 0;">
-      {% for r in rows %}
-        <li style="list-style: none; margin-bottom: 8px;">
-          #{{ r[0] }} em {{ r[1] }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>Nenhum processo iniciado ainda.</p>
-  {% endif %}
-  <a class="link-listar" href="{{ url_for('index') }}">← Voltar ao Início</a>
-</div>
+<!-- aqui vai o seu conteúdo de listagem -->
 {% endblock %}
